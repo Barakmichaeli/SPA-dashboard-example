@@ -8,7 +8,7 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route path="/bizza" component={Main}/>
+                    <Route path="/" component={Main}/>
                     <Route path="*" component={Error}/>
                 </Switch>
             </BrowserRouter>
