@@ -73,7 +73,8 @@ class AddUserBar extends Component {
             grade: parseInt(grade),
             class: userClass,
             email: email,
-            studentID: studentID
+            studentID: studentID,
+            pass: pass
         });
 
         this.props.changeBar();
