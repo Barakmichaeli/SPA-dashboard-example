@@ -2,21 +2,35 @@
  * Created by barak on 15/08/2017.
  */
 import React, {Component} from 'react';
-import _ from 'lodash';
-
+import FilterBar from './FilterBar';
+import AddBar from './AddUserBar';
 
 class SearchBar extends Component {
-    searchForUser(e) {
-        this.props.updatePerson(e.target.value);
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            filter: true
+        }
+    }
+
+    changeBar() {
+        this.setState({
+            filter: !this.state.filter
+        })
     }
 
     render() {
         return (
-            <div className="search-container">
-                <p className="filter-text">Filter:</p>
-                <input className="filter-text searchBox " type="text" placeholder="ID:###" onKeyUp={this.searchForUser.bind(this)}/>
+            <div>
+                {(this.state.filter) ?
+                    <FilterBar changeBar={this.changeBar.bind(this)}
+                               updatePerson={this.props.updatePerson}/> :
+                    <AddBar changeBar={this.changeBar.bind(this)} addPerson = {this.props.addPerson}/>
+                }
             </div>
-        );
+
+        )
     }
 }
 export default SearchBar;

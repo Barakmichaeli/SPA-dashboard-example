@@ -1,3 +1,8 @@
+body{
+    min-width: 700px;
+}
+
+
 .nav.navbar-nav li {
     float: left;
     font-size: 25px;
@@ -33,7 +38,31 @@
 }
 
 .searchBox {
+    border-radius: 5px;
     color: #252525;
+}
+
+.add-box{
+    display: inline-block;
+    margin: 10px;
+    width: 30%;
+}
+
+.addUser-input{
+    font-size: 20px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.add-container {
+    background-color: #252525;
+}
+
+.add-text {
+    display: inline-block;
+    margin: 10px;
+    color: white;
+    font-size: 20px;
 }
 
 
@@ -42,7 +71,9 @@
     height: 400px;
     float: left;
     border-color: black;
+    border-width: 2px;
     border-style: solid;
+    border-top-width: 5px;
 
 }
 
@@ -53,8 +84,10 @@
 .details-box {
     font-weight: bold;
     border-style: solid;
-    border-color: #252525;
+    border-color: #000000;
     display: inline-table;
+    border-width: 2px;
+    border-top-width: 5px;
     width: 25%;
     height: 400px;
     padding-left: 10px;
@@ -73,4 +106,33 @@
 
 button:focus{
     outline: 0 !important;
+}
+
+
+button {
+    margin-left: 5px;
+    font-weight: bolder;
+}
+
+.add-button {
+    margin-bottom: 5px;
+    font-size: 10px;
+}
+
+.add-container{
+    padding-bottom: 13px;
+}
+
+.addButton{
+    display: block;
+    margin:  15px auto;
+    font-size: 20px;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+.close {
+    color: white;
+    margin-right: 15px;
+    margin-top: 10px;
 }
