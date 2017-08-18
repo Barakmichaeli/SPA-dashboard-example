@@ -29,7 +29,6 @@ class SearchBar extends Component {
                     <AddBar changeBar={this.changeBar.bind(this)} addPerson = {this.props.addPerson}/>
                 }
             </div>
-
         )
     }
 }

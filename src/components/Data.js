@@ -1,33 +1,40 @@
-/**
- * Created by barak on 17/08/2017.
- */
-module.exports = [
-    {
-        id: 204386882,
-        name: "Barak",
-        date: "1.1.2020",
-        grade: 85,
-        class: "Algebra",
-        email: "Barak@gmail.com",
-        studentID: "1",
-        pass: "123456"
-    }, {
-        id: 204685882,
-        name: "Guy",
-        date: "1.1.1992",
-        grade: 80,
-        class: "Singing",
-        email: "guy@gmail.com",
-        studentID: "2",
-        pass: "123654987"
-    }, {
-        id: 204548223,
-        name: "Alon",
-        date: "3.2.1992",
-        grade: 82,
-        class: "Visual reality",
-        email: "Alon@gmail.com",
-        studentID: "3",
-        pass: "147654"
-    }
-];
+let arr = [];
+let names = ["Barak", "Alon", "Guy", "Hadar", "Vered", "Barak", "Alon", "Guy", "Hadar", "Vered", "Barak", "Omer"];
+let years = ["1992", "1993", "1994", "1995", "1996", "1997", "1997", "1998", "1999", "2000", "2001", "2002"];
+let avgGrades = [80, 79, 90, 100, 22, 40, 62, 70, 92, 85, 79, 80];
+
+for (let i = 0; i < names.length; i++) {
+    arr.push(
+        {
+            id: i * 10,
+            name: names[i],
+            date: (new Date(years[i], 5, 15, 8, 50).toDateString()),
+            grade: avgGrades[i],
+            subject: "Computer science",
+            email: "Barak@gmail.com",
+            Address: "Avital 58 ",
+            city: "Modiin",
+            country: "Israel",
+            zip: "123456"
+        }
+    )
+}
+
+for (let i = 3; i < names.length; i++) {
+    arr.push(
+        {
+            id: i * 100,
+            name: names[i],
+            date: (new Date(years[i], 5, 15, 8, 50).toDateString()),
+            grade: avgGrades[i],
+            subject: "Computer science",
+            email: "Dor@gmail.com",
+            Address: "Brosh 3",
+            city: "Modiin",
+            country: "USA",
+            zip: "77082"
+        }
+    )
+}
+
+module.exports = arr;

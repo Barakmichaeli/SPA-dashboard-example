@@ -6,23 +6,20 @@ import React, {Component} from 'react';
 
 class PersonRow extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
-            <tr onClick={() =>{
-                this.props.viewPerson(this.props);
+            <tr id={this.props.person.id} className="table-row" onClick={() => {
+                this.props.viewPerson(this.props.person);
             }}>
-                <td>{this.props.id}</td>
-                <td>{this.props.name}</td>
-                <td>{this.props.date}</td>
-                <td>{this.props.grade}</td>
-                <td>{this.props.class}</td>
+                <td>{this.props.person.id}</td>
+                <td>{this.props.person.name}</td>
+                <td>{this.props.person.date}</td>
+                <td>{this.props.person.grade}</td>
+                <td>{this.props.person.subject}</td>
             </tr>
         )
     }
 }
 
 export default PersonRow;
+

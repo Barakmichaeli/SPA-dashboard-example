@@ -8,65 +8,52 @@ class GridTable extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            user: props.currentPerson,
-        };
-
-        console.log("Build");
         this.generateTable.bind(this);
     }
 
     generateTable() {
-
-        let flag = (this.props.currentFilter.length === 0) ? true : false;
-
+        let flag = (this.props.currentFilter.length === 0);
+        let startIndex = this.props.currentIndex - 1;
+        let end = this.props.stopIndex;
         let dataArr = this.props.data;
-        console.log("ARR IS");
-        console.log(dataArr);
 
+        //In case user entered filter id - filter our data
         if (!flag) {
             dataArr = dataArr.filter(person => {
                 let num1 = String(person.id);
                 let num2 = String(this.props.currentFilter);
                 return num1.startsWith(num2)
             })
-        }
+        } else
+            dataArr = this.props.data.slice(startIndex, end);
 
-
-
-        //Return an array
         let rowsList = dataArr.map(person => {
-            return <PersonRow id={person.id}
-                              name={person.name}
-                              date={person.date}
-                              grade={person.grade}
-                              class={person.class}
-                              email={person.email}
-                              studentID={person.studentID}
-                              pass={person.pass}
+            return <PersonRow person={person}
                               viewPerson={this.props.viewPerson}/>
         });
+
         return rowsList;
     }
 
+
     render() {
+
         return (
             <div className="table-container">
                 <table className="table table-hover">
-                    <thead>
+                    <thead style={{backgroundColor: "#252525", color: "white"}}>
                     <tr>
                         <td>ID</td>
                         <td>Name</td>
-                        <td>Birth Date</td>
-                        <td>Grade</td>
-                        <td>Class</td>
+                        <td>Date joined</td>
+                        <td>Average Grade</td>
+                        <td>Subject</td>
                     </tr>
                     </thead>
                     <tbody className="data-rows">
                     {this.generateTable()}
                     </tbody>
                 </table>
-
             </div>
         )
     }

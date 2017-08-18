@@ -1,11 +1,17 @@
-body{
-    min-width: 700px;
+body {
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    background-size: cover;
+    color: black;
+    background-image: url("../images/igor-ovsyannykov-211542.jpg");
+    max-height: 100%;
+    min-width: 800px;
 }
 
-
 .nav.navbar-nav li {
+    font-weight: lighter;
     float: left;
-    font-size: 25px;
+    font-size: 20px;
     margin-left: 40px;
 }
 
@@ -27,13 +33,16 @@ body{
     display: inline-block;
     margin: 10px;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .search-container {
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    padding-left: 3.4%;
+    border-style: solid;
+    border-color: #000000;
+    border-bottom: 0px;
+    border-top-width: 1px;
+    font-weight: lighter;
     background-color: #252525;
 }
 
@@ -42,14 +51,14 @@ body{
     color: #252525;
 }
 
-.add-box{
+.add-box {
     display: inline-block;
     margin: 10px;
-    width: 30%;
+    width: 27%;
 }
 
-.addUser-input{
-    font-size: 20px;
+.addUser-input {
+    font-size: 15px;
     width: 100%;
     border-radius: 5px;
 }
@@ -65,49 +74,48 @@ body{
     font-size: 20px;
 }
 
-
-.table-container{
+.table-container {
     width: 75%;
-    height: 400px;
+    height: 420px;
     float: left;
     border-color: black;
     border-width: 2px;
     border-style: solid;
-    border-top-width: 5px;
-
 }
-
 
 .table {
     float: left;
 }
+
 .details-box {
-    font-weight: bold;
     border-style: solid;
     border-color: #000000;
     display: inline-table;
     border-width: 2px;
-    border-top-width: 5px;
     width: 25%;
-    height: 400px;
-    padding-left: 10px;
+    height: 420px;
+    padding-left: 5px;
 }
 
 .data-rows {
     cursor: pointer;
 }
 
+
 .lower {
-    margin: 30px;
-    padding: 0;
+    margin-top: 30px;
+    margin-left: 10px;
     border-color: white;
-    text-align: center;
 }
 
-button:focus{
+.lower-btn {
+    margin: 0px;
+    border-radius: 0px;
+}
+
+button:focus {
     outline: 0 !important;
 }
-
 
 button {
     margin-left: 5px;
@@ -116,16 +124,16 @@ button {
 
 .add-button {
     margin-bottom: 5px;
-    font-size: 10px;
+    font-size: 18px;
 }
 
-.add-container{
+.add-container {
     padding-bottom: 13px;
 }
 
-.addButton{
+.addButton {
     display: block;
-    margin:  15px auto;
+    margin: 15px auto;
     font-size: 20px;
     border-radius: 15px;
     background-color: #ffffff;
@@ -135,4 +143,9 @@ button {
     color: white;
     margin-right: 15px;
     margin-top: 10px;
+}
+
+.details-btn{
+    margin-top: 13%;
+    text-align: center;
 }

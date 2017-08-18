@@ -12,78 +12,82 @@ class AddUserBar extends Component {
         let id = document.getElementsByClassName('id')[0].value;
         let name = document.getElementsByClassName('name')[0].value;
         let grade = document.getElementsByClassName('grade')[0].value;
-        let date = document.getElementsByClassName('date')[0].value;
-        let userClass = document.getElementsByClassName('class')[0].value;
-        let studentID = document.getElementsByClassName('studentID')[0].value;
+        let date = (new Date()).toDateString();
+        let subject = document.getElementsByClassName('subject')[0].value;
         let email = document.getElementsByClassName('email')[0].value;
-        let pass = document.getElementsByClassName('pass')[0].value;
+        let address = document.getElementsByClassName('address')[0].value;
+        let country = document.getElementsByClassName('country')[0].value;
+        let city = document.getElementsByClassName('city')[0].value;
+        let zip = document.getElementsByClassName('zip')[0].value;
 
         let bool = false;
 
-        if (id.length === 0) {
-            document.getElementsByClassName('id')[0].style.backgroundColor = "yellow";
+        if (id.length !== 9 || !(/^[0-9]+$/.test(id))) {
+            document.getElementsByClassName('id')[0].style.borderColor = "red";
             bool = true;
-        }else
-            document.getElementsByClassName('id')[0].style.backgroundColor = "white";
+        } else
+            document.getElementsByClassName('id')[0].style.borderColor = "white";
 
         if (name.length === 0) {
-            document.getElementsByClassName('name')[0].style.backgroundColor = "yellow";
+            document.getElementsByClassName('name')[0].style.borderColor = "red";
             bool = true;
-        }else
-            document.getElementsByClassName('name')[0].style.backgroundColor = "white";
+        } else
+            document.getElementsByClassName('name')[0].style.borderColor = "white";
 
         if (grade.length === 0) {
-            document.getElementsByClassName('grade')[0].style.backgroundColor = "yellow";
+            document.getElementsByClassName('grade')[0].style.borderColor = "red";
             bool = true;
-        }else
-            document.getElementsByClassName('grade')[0].style.backgroundColor = "white";
+        } else
+            document.getElementsByClassName('grade')[0].style.borderColor = "white";
 
-        if (userClass.length === 0) {
-            document.getElementsByClassName('class')[0].style.backgroundColor = "yellow";
+        if (subject.length === 0) {
+            document.getElementsByClassName('subject')[0].style.borderColor = "red";
             bool = true;
-        }else
-            document.getElementsByClassName('class')[0].style.backgroundColor = "white";
+        } else
+            document.getElementsByClassName('subject')[0].style.borderColor = "white";
 
-        if (studentID.length === 0) {
-            document.getElementsByClassName('studentID')[0].style.backgroundColor = "yellow";
+        if (email.length === 0) {
+            document.getElementsByClassName('email')[0].style.borderColor = "red";
             bool = true;
-        }else
-            document.getElementsByClassName('studentID')[0].style.backgroundColor = "white";
+        } else
+            document.getElementsByClassName('email')[0].style.borderColor = "white";
 
-        if (email.length == 0) {
-            document.getElementsByClassName('email')[0].style.backgroundColor = "yellow";
+        if (country.length === 0) {
+            document.getElementsByClassName('country')[0].style.borderColor = "red";
             bool = true;
-        }else
-            document.getElementsByClassName('email')[0].style.backgroundColor = "white";
+        } else
+            document.getElementsByClassName('country')[0].style.borderColor = "white";
 
-        if (pass.length == 0) {
-            document.getElementsByClassName('pass')[0].style.backgroundColor = "yellow";
+        if (city.length === 0) {
+            document.getElementsByClassName('city')[0].style.borderColor = "red";
             bool = true;
-        }else
-            document.getElementsByClassName('pass')[0].style.backgroundColor = "white";
-
+        } else
+            document.getElementsByClassName('city')[0].style.borderColor = "white";
 
         if (bool)
             return;
 
         this.props.addPerson({
-            id: parseInt(id),
+            id: parseInt(id,10),
             name: name,
             date: date,
-            grade: parseInt(grade),
-            class: userClass,
+            grade: parseInt(grade, 10),
+            subject: subject,
             email: email,
-            studentID: studentID,
-            pass: pass
+            address: address,
+            city: city,
+            country: country,
+            zip: zip
         });
 
         this.props.changeBar();
     }
 
     render() {
+
         return (
             <div className="add-container">
-                <button type="button" className="close" aria-label="Close" onClick={()=>{
+                <button type="button" className="close" aria-label="Close" onClick={() => {
                     this.props.changeBar();
                 }}>
                     <span aria-hidden="true">&times;</span>
@@ -91,7 +95,7 @@ class AddUserBar extends Component {
 
                 <div className="add-box">
                     <p className="add-text">New ID:</p>
-                    <input className="id addUser-input" type="text" placeholder="ID:###"/>
+                    <input className="id addUser-input" type="text" placeholder="8 Letters & security code"/>
                 </div>
 
                 <div className="add-box">
@@ -105,13 +109,8 @@ class AddUserBar extends Component {
                 </div>
 
                 <div className="add-box">
-                    <p className="add-text">Birth Date:</p>
-                    <input className="date addUser-input" type="text" placeholder="1.1.2020"/>
-                </div>
-
-                <div className="add-box">
-                    <p className="add-text">Class:</p>
-                    <input className="class addUser-input" type="text" placeholder="Class"/>
+                    <p className="add-text">Subject:</p>
+                    <input className="subject addUser-input" type="text" placeholder="Subject"/>
                 </div>
 
                 <div className="add-box">
@@ -119,19 +118,30 @@ class AddUserBar extends Component {
                     <input className="email addUser-input" type="text" placeholder="email@gmail.com"/>
                 </div>
                 <div className="add-box">
-                    <p className="add-text">Student ID:</p>
-                    <input className="studentID addUser-input" type="text" placeholder="STUDENT ID:###"/>
+                    <p className="add-text">Address:</p>
+                    <input className="address addUser-input" type="text" placeholder="Subject ID:###"/>
                 </div>
 
                 <div className="add-box">
-                    <p className="add-text">Password:</p>
-                    <input className="pass addUser-input" type="text" placeholder="########"/>
+                    <p className="add-text">Country:</p>
+                    <input className="country addUser-input" type="text" placeholder="########"/>
                 </div>
+
+                <div className="add-box">
+                    <p className="add-text">City:</p>
+                    <input className="city addUser-input" type="text" placeholder="########"/>
+                </div>
+
+                <div className="add-box">
+                    <p className="add-text">Zip:</p>
+                    <input className="zip addUser-input" type="text" placeholder="ZIP CODE"/>
+                </div>
+
 
                 <button type="button" className="btn btn-secondary  addButton" onClick={() => {
                     this.submitNewUser();
                 }
-                }>Done!
+                }>Add
                 </button>
             </div>
         );

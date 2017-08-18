@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 // import Error from './Error'
 // import './nav.css'
 
@@ -22,7 +22,7 @@ class NavigationBar extends React.Component {
                         </li>
                     </ul>
                 </nav>
-                {/*<Route path={"/webiks/:user"} component={Error}/>*/}
+                {/*<Route path={"/bizzabo/:user"} component={Error}/>*/}
             </div>
         );
     }
