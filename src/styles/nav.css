@@ -5,7 +5,7 @@ body {
     color: black;
     background-image: url("../images/igor-ovsyannykov-211542.jpg");
     max-height: 100%;
-    min-width: 800px;
+    min-width: 900px;
 }
 
 .nav.navbar-nav li {
@@ -150,3 +150,6 @@ button {
     text-align: center;
 }
 
+td {
+    width: auto;
+}

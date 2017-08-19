@@ -9,8 +9,8 @@ class Details extends Component {
                 <p><u>Name: </u> {this.props.currentPerson.name}</p>
                 <p><u>Grade: </u>{this.props.currentPerson.grade}</p>
                 <p><u>Email: </u> {this.props.currentPerson.email}</p>
-                <p><u> </u> {this.props.currentPerson.date}</p>
-                <p><u> </u> {this.props.currentPerson.address}</p>
+                <p><u>Date: </u> {this.props.currentPerson.date}</p>
+                <p><u>Address: </u> {this.props.currentPerson.address}</p>
                 <p><u>City: </u> {this.props.currentPerson.city}</p>
                 <p><u>Country: </u> {this.props.currentPerson.country}</p>
                 <p><u>ZIP: </u> {this.props.currentPerson.zip}</p>
