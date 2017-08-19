@@ -11,10 +11,10 @@ class NavigationBar extends React.Component {
                             <Link to={"/data"}  className="nav-link"> Data </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={"#"} className="nav-link"> Analysis </Link>
+                            <Link to={"/"} className="nav-link"> Analysis </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={"#"} className="nav-link"> Monitor </Link>
+                            <Link to={"/"} className="nav-link"> Monitor </Link>
                         </li>
                     </ul>
                 </nav>
