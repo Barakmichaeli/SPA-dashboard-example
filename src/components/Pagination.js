@@ -15,8 +15,11 @@ class Pagination extends Component {
     }
 
     setBorderColor() {
-        console.log(this.props.currentPage);
-        document.getElementById(this.props.currentPage).style.borderColor = "black ";
+        try {
+            document.getElementById(this.props.currentPage).style.borderColor = "black ";
+        } catch (e) {
+            console.log("Error with page " + this.props.currentPage);
+        }
     }
 
     setNextPage() {

@@ -119,10 +119,7 @@ class Main extends Component {
 
         //Assume no duplicate ID - May cause problems.
         let newData = [person];
-
-        //Add the new member at the beggining of the data;
-        if (this.state.data.length !== 0)
-            data = newData.concat(data);
+        data = newData.concat(data);
 
         //Case of inserting first member
         if (this.state.stopIndex === 0)
@@ -133,11 +130,14 @@ class Main extends Component {
                 stopIndex: 1
             });
         else {
-            let num = (this.state.stopIndex - this.state.currentIndex === 9) ?
-                this.state.stopIndex : (this.state.stopIndex + 1);
+
+            //Adding new member and restart to the first page
+            let num = (data.length > 10) ?
+                10 : (this.state.stopIndex + 1);
             this.setState({
                 data: data,
                 filter: '',
+                person : '',
                 stopIndex: num
             });
         }

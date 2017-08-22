@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="084a95d0-a91d-4ca3-8465-a47dd7818db4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Details.js" afterPath="$PROJECT_DIR$/src/components/Details.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FilterBar.js" afterPath="$PROJECT_DIR$/src/components/FilterBar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/GridTable.js" afterPath="$PROJECT_DIR$/src/components/GridTable.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Main.js" afterPath="$PROJECT_DIR$/src/components/Main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Pagination.js" afterPath="$PROJECT_DIR$/src/components/Pagination.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/SearchBar.js" afterPath="$PROJECT_DIR$/src/components/SearchBar.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,8 +22,8 @@
       <file leaf-file-name="Main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="74" column="49" lean-forward="false" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="49" />
+            <state relative-caret-position="1179">
+              <caret line="143" column="5" lean-forward="true" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -38,8 +34,8 @@
       <file leaf-file-name="Pagination.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Pagination.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+            <state relative-caret-position="224">
+              <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -111,13 +107,13 @@
       <find>be</find>
       <find>setBorder</find>
       <find>console</find>
-      <find>current</find>
       <find>update</find>
       <find>flag</find>
       <find>data</find>
       <find>pers</find>
       <find>newD</find>
       <find>newData</find>
+      <find>current</find>
     </findStrings>
     <replaceStrings>
       <replace>localStorage</replace>
@@ -151,8 +147,8 @@
         <option value="$PROJECT_DIR$/src/components/SearchBar.js" />
         <option value="$PROJECT_DIR$/src/components/FilterBar.js" />
         <option value="$PROJECT_DIR$/src/components/GridTable.js" />
-        <option value="$PROJECT_DIR$/src/components/Pagination.js" />
         <option value="$PROJECT_DIR$/src/components/Main.js" />
+        <option value="$PROJECT_DIR$/src/components/Pagination.js" />
       </list>
     </option>
   </component>
@@ -397,7 +393,7 @@
       <workItem from="1503143212830" duration="2568000" />
       <workItem from="1503228679331" duration="9814000" />
       <workItem from="1503308550120" duration="27000" />
-      <workItem from="1503353362381" duration="21425000" />
+      <workItem from="1503353362381" duration="22791000" />
     </task>
     <task id="LOCAL-00001" summary="bugs fixed">
       <created>1502838469556</created>
@@ -469,11 +465,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503395562253</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="small changes in some components - making the app more efficient.">
+      <created>1503400651138</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1503400651138</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120370000" />
+    <option name="totallyTimeSpent" value="121736000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -509,7 +512,8 @@
     <MESSAGE value="1.Two tests were added &#10;2. finished setting sessionStorage &#10;3. more comments were added&#10;4.some bugs were fixed" />
     <MESSAGE value="Two tests were added &#10;finished setting sessionStorage &#10;more comments were added&#10;some bugs were fixed" />
     <MESSAGE value="Small bug with pagination current page border color was fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Small bug with pagination current page border color was fixed." />
+    <MESSAGE value="small changes in some components - making the app more efficient." />
+    <option name="LAST_COMMIT_MESSAGE" value="small changes in some components - making the app more efficient." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -873,16 +877,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Pagination.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+        <state relative-caret-position="224">
+          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="74" column="49" lean-forward="false" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="49" />
+        <state relative-caret-position="1179">
+          <caret line="143" column="5" lean-forward="true" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
