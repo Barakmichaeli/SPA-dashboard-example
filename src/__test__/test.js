@@ -29,7 +29,6 @@ describe('Testing the main GridTable component', () => {
         expect(wrapper.find('.table-container').exists()).toBe(true);
     });
 
-
     it('Check that table without data dont have any row', () => {
         const wrapper = shallow(<GridTable currentIndex={0}
                                            stopIndex={0}
