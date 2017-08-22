@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import NavigationBar from './NavigationBar';
 import SearchBar from './SearchBar';
 import GridTable from './GridTable';
 import Pagination from './Pagination';
@@ -13,20 +12,27 @@ class Main extends Component {
     constructor(props) {
         super(props);
 
-        let size;
-        if (data.length < 10)
-            size = data.length;
-        else
-            size = 10;
+        let localData = (sessionStorage.getItem("currentIndex")) ? JSON.parse(sessionStorage.getItem("data")) : data;
+        let size = (localData.length < 10) ? localData.length : 10;
+        //Check if our session objecr is defined , if it does render by him.
+        let obj = (sessionStorage.getItem("currentIndex")) ?
+            {
+                person: sessionStorage.getItem("person"),
+                filter: sessionStorage.getItem("filter"),
+                data: JSON.parse(sessionStorage.getItem("data")),
+                currentIndex: JSON.parse(sessionStorage.getItem("currentIndex")),
+                stopIndex: JSON.parse(sessionStorage.getItem("stopIndex")),
+                currentPage: JSON.parse(sessionStorage.getItem("currentPage")),
+            } : {
+                person: '',
+                filter: '',
+                data: data,
+                currentIndex: 1,
+                stopIndex: size,
+                currentPage: 1
+            };
 
-        this.state = {
-            person: '',
-            filter: '',
-            data: data,
-            currentIndex: 1,
-            stopIndex: size,
-            currentPage: 1
-        }
+        this.state = obj;
     }
 
 
@@ -71,11 +77,11 @@ class Main extends Component {
                     stopIndex: this.state.stopIndex - 1,
                     currentPage: (this.state.currentPage === 1) ?
                         1 :
-                        this.state.currentPage - 1});
+                        this.state.currentPage - 1
+                });
             }
         }
         else {
-
             //re render the same page without the deleted person
             let len = newData.length;
             let index = this.state.stopIndex;
@@ -94,11 +100,12 @@ class Main extends Component {
 
         //Assume no duplicate ID - May cause problems.
         let newData = [person];
+
         //Add the new member at the beggining of the data;
         if (this.state.data.length !== 0)
             newData = newData.concat(this.state.data);
 
-        //Case of first member
+        //Case of inserting first member
         if (this.state.stopIndex === 0)
             this.setState({
                 data: newData,
@@ -143,10 +150,19 @@ class Main extends Component {
         }
     }
 
+    componentDidUpdate() {
+        sessionStorage.setItem("person", this.state.person);
+        sessionStorage.setItem("filter", this.state.filter);
+        sessionStorage.setItem("data", JSON.stringify(this.state.data));
+        sessionStorage.setItem("currentIndex", this.state.currentIndex);
+        sessionStorage.setItem("stopIndex", this.state.stopIndex);
+        sessionStorage.setItem("currentPage", this.state.currentPage);
+    }
+
     render() {
+        console.log("here!");
         return (
             <div className="container">
-                <NavigationBar/>
                 <SearchBar addPerson={this.addPerson.bind(this)} updatePerson={this.updateFilter.bind(this)}/>
                 <GridTable currentIndex={this.state.currentIndex}
                            stopIndex={this.state.stopIndex}

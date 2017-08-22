@@ -15,6 +15,8 @@ class SearchBar extends Component {
     }
 
     changeBar() {
+        //Our filter bar has 2 states - adding user or filter users.
+        // changing the state by boolean flag.
         this.setState({
             filter: !this.state.filter
         })
@@ -26,7 +28,7 @@ class SearchBar extends Component {
                 {(this.state.filter) ?
                     <FilterBar changeBar={this.changeBar.bind(this)}
                                updatePerson={this.props.updatePerson}/> :
-                    <AddBar changeBar={this.changeBar.bind(this)} addPerson = {this.props.addPerson}/>
+                    <AddBar changeBar={this.changeBar.bind(this)} addPerson={this.props.addPerson}/>
                 }
             </div>
         )

@@ -11,21 +11,19 @@ class Pagination extends Component {
         this.state = {
             firstLoading: true
         };
-
         this.setBorderColor.bind(this);
     }
-
 
     setBorderColor() {
         document.getElementById(this.props.currentPage).style.borderColor = "black ";
     }
 
     setNextPage() {
-
         //End of data dont go forward
         if (this.props.lastIndex === this.props.numOfdata)
             return;
 
+        //Paint the appropriate number in pagination and update the page
         if (this.props.lastIndex % 10 === 0) {
             document.getElementById(this.props.currentPage).style.borderColor = "";
             this.setState({
@@ -43,9 +41,7 @@ class Pagination extends Component {
             return;
         }
 
-        console.log("current page" + this.props.currentPage);
         document.getElementById(this.props.currentPage).style.borderColor = "";
-
         this.props.setPage("prev");
     }
 
@@ -60,7 +56,6 @@ class Pagination extends Component {
 
     render() {
         let start, last;
-
         start = (this.props.numOfdata === 0) ? 0 : this.props.currentIndex;
         switch (this.props.numOfdata) {
             case 0 :

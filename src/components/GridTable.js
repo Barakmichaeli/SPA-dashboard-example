@@ -27,12 +27,10 @@ class GridTable extends Component {
         } else
             dataArr = this.props.data.slice(startIndex, end);
 
-        let rowsList = dataArr.map(person => {
+        return dataArr.map(person => {
             return <PersonRow person={person}
                               viewPerson={this.props.viewPerson}/>
         });
-
-        return rowsList;
     }
 
 

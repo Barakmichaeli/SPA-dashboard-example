@@ -2,3 +2,5 @@ git commit -m "react-create-app on Heroku"
 git push heroku master
 git push https://git.heroku.com/spa-dashboard-example.git
 
+clear
+npm unistall --save/--save-dev / --save-optional / --no-save

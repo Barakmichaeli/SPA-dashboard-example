@@ -1,17 +1,25 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom'
+import NavigationBar from './NavigationBar';
 import Main from './Main';
-// import Error from './Error';
+import Error from './Error';
 
 class App extends Component {
     render() {
+        //On refresh or first login we will clear the session.
+        sessionStorage.clear();
         return (
             <BrowserRouter>
-                <Switch>
-                    <Route path="*" component={Main}/>
-                    {/*Could lead to other page*/}
-                    {/*<Route path="/" component={Main}/>*/}
+                <div className="container">
+                    <NavigationBar/>
+                    <Switch>
+                        <Route exact path="/data" component={Main}/>
+                        <Route exact path="/" component={Main}/>
+                        <Route exact path="/analysis" component={Error}/>
+                        <Route path="/monitor" component={Error}/>
+                        <Redirect from="*" to="/data"/>
                 </Switch>
+                </div>
             </BrowserRouter>
         )
     }
