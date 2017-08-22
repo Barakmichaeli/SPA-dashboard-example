@@ -1,5 +1,5 @@
 
-## SPA - Dashboard with reactJS
+## SPA - Dashboard with ReactJS
 Main features :
 
 1. Adding/Removing users
