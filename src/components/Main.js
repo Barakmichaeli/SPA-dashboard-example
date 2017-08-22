@@ -17,7 +17,7 @@ class Main extends Component {
         //Check if our session objecr is defined , if it does
         let obj = (sessionStorage.getItem("currentIndex")) ?
             {
-                person: sessionStorage.getItem("person"),
+                person: JSON.parse(sessionStorage.getItem("person")),
                 filter: sessionStorage.getItem("filter"),
                 data: JSON.parse(sessionStorage.getItem("data")),
                 currentIndex: JSON.parse(sessionStorage.getItem("currentIndex")),
@@ -37,8 +37,24 @@ class Main extends Component {
 
 
     updateFilter(str) {
+        //In case user entered filter id - filter our data
+        let dataArr = data.filter(person => {
+            let num1 = String(person.id);
+            let num2 = String(str);
+            return num1.startsWith(num2)
+        });
+
+        let start = (dataArr.length !== 0) ? 1 : 0;
+        let stop = (dataArr.length > 10) ? 10 : dataArr.length;
+
+        console.log(start)
+        console.log(stop)
+
         this.setState({
             filter: str,
+            currentIndex: start,
+            stopIndex: stop,
+            data: dataArr
         });
     }
 
@@ -50,8 +66,9 @@ class Main extends Component {
 
     deletePerson() {
 
-        //Delete of instances of selected person
-        let newData = this.state.data.filter((value) => {
+        //Delete of i
+        // instances of selected person
+        data = data.filter((value) => {
             return value.id !== this.state.person.id;
         });
 
@@ -71,7 +88,7 @@ class Main extends Component {
                 //Jump one page back automaticlly
                 console.log("here" + this.state.currentPage);
                 this.setState({
-                    data: newData,
+                    data: data,
                     person: '',
                     currentIndex: this.state.currentIndex - 10,
                     stopIndex: this.state.stopIndex - 1,
@@ -83,12 +100,14 @@ class Main extends Component {
         }
         else {
             //re render the same page without the deleted person
-            let len = newData.length;
+            let len = data.length;
             let index = this.state.stopIndex;
             let num = (len >= index) ?
                 this.state.stopIndex : this.state.stopIndex - 1;
+
+
             this.setState({
-                data: newData,
+                data: data,
                 person: '',
                 stopIndex: num,
                 currentPage: this.state.currentPage
@@ -103,12 +122,12 @@ class Main extends Component {
 
         //Add the new member at the beggining of the data;
         if (this.state.data.length !== 0)
-            newData = newData.concat(this.state.data);
+            data = newData.concat(data);
 
         //Case of inserting first member
         if (this.state.stopIndex === 0)
             this.setState({
-                data: newData,
+                data: data,
                 filter: '',
                 currentIndex: 1,
                 stopIndex: 1
@@ -117,7 +136,7 @@ class Main extends Component {
             let num = (this.state.stopIndex - this.state.currentIndex === 9) ?
                 this.state.stopIndex : (this.state.stopIndex + 1);
             this.setState({
-                data: newData,
+                data: data,
                 filter: '',
                 stopIndex: num
             });
@@ -151,19 +170,19 @@ class Main extends Component {
     }
 
     componentDidUpdate() {
-        sessionStorage.setItem("person", this.state.person);
+        sessionStorage.setItem("person", JSON.stringify(this.state.person));
         sessionStorage.setItem("filter", this.state.filter);
         sessionStorage.setItem("data", JSON.stringify(this.state.data));
-        sessionStorage.setItem("currentIndex", this.state.currentIndex);
-        sessionStorage.setItem("stopIndex", this.state.stopIndex);
-        sessionStorage.setItem("currentPage", this.state.currentPage);
+        sessionStorage.setItem("currentIndex", JSON.stringify(this.state.currentIndex));
+        sessionStorage.setItem("stopIndex", JSON.stringify(this.state.stopIndex));
+        sessionStorage.setItem("currentPage", JSON.stringify(this.state.currentPage));
     }
 
     render() {
-        console.log("here!");
         return (
             <div className="container">
-                <SearchBar addPerson={this.addPerson.bind(this)} updatePerson={this.updateFilter.bind(this)}/>
+                <SearchBar preFilter={this.state.filter} addPerson={this.addPerson.bind(this)}
+                           updatePerson={this.updateFilter.bind(this)}/>
                 <GridTable currentIndex={this.state.currentIndex}
                            stopIndex={this.state.stopIndex}
                            data={this.state.data}

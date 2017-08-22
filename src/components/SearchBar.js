@@ -27,7 +27,8 @@ class SearchBar extends Component {
             <div>
                 {(this.state.filter) ?
                     <FilterBar changeBar={this.changeBar.bind(this)}
-                               updatePerson={this.props.updatePerson}/> :
+                               updatePerson={this.props.updatePerson}
+                               preFilter={this.props.preFilter}/> :
                     <AddBar changeBar={this.changeBar.bind(this)} addPerson={this.props.addPerson}/>
                 }
             </div>

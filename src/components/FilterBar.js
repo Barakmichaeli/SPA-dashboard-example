@@ -16,8 +16,7 @@ class FilterBar extends Component {
                 <p className="filter-text">Filter:</p>
                 <input className="filter-text searchBox" type="text" placeholder="ID:###"
                        onKeyUp={this.searchForUser.bind(this)}/>
-
-                <button  type="button" className="btn btn-secondary add-button" onClick={() => {
+                <button type="button" className="btn btn-secondary add-button" onClick={() => {
                     this.props.changeBar()
                 }}>Add
 

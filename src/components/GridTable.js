@@ -12,20 +12,9 @@ class GridTable extends Component {
     }
 
     generateTable() {
-        let flag = (this.props.currentFilter.length === 0);
         let startIndex = this.props.currentIndex - 1;
         let end = this.props.stopIndex;
-        let dataArr = this.props.data;
-
-        //In case user entered filter id - filter our data
-        if (!flag) {
-            dataArr = dataArr.filter(person => {
-                let num1 = String(person.id);
-                let num2 = String(this.props.currentFilter);
-                return num1.startsWith(num2)
-            })
-        } else
-            dataArr = this.props.data.slice(startIndex, end);
+        let dataArr = this.props.data.slice(startIndex, end);
 
         return dataArr.map(person => {
             return <PersonRow person={person}

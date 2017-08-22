@@ -15,6 +15,7 @@ class Pagination extends Component {
     }
 
     setBorderColor() {
+        console.log(this.props.currentPage);
         document.getElementById(this.props.currentPage).style.borderColor = "black ";
     }
 
