@@ -48,10 +48,13 @@ class Pagination extends Component {
 
     componentDidUpdate() {
         //Set color to the current page each time re rendered.
-        if (this.props.numOfdata === 0) {
+        if (this.props.numOfdata === 0)
             return;
-        }
         this.setBorderColor(this.props.currentPage);
+    }
+
+    componentDidMount() {
+        document.getElementById(this.props.currentPage).style.borderColor = "black ";
     }
 
     render() {
@@ -73,9 +76,7 @@ class Pagination extends Component {
                     <div style={ {display: "inline"}}>
                         {(this.state.firstLoading) ?
                             <button id="1" type="button"
-                                    className="first-btn lower-btn btn btn-secondary btn-lg"
-                                    style={{borderColor: "black"}}
-                            > {1}</button> :
+                                    className="first-btn lower-btn btn btn-secondary btn-lg"> {1}</button> :
                             <button id="1" type="button"
                                     className="first-btn lower-btn btn btn-secondary btn-lg"
                             > {1}</button>}

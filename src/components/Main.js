@@ -14,7 +14,7 @@ class Main extends Component {
 
         let localData = (sessionStorage.getItem("currentIndex")) ? JSON.parse(sessionStorage.getItem("data")) : data;
         let size = (localData.length < 10) ? localData.length : 10;
-        //Check if our session objecr is defined , if it does render by him.
+        //Check if our session objecr is defined , if it does
         let obj = (sessionStorage.getItem("currentIndex")) ?
             {
                 person: sessionStorage.getItem("person"),
