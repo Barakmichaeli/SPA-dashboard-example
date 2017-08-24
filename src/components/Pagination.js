@@ -11,91 +11,62 @@ class Pagination extends Component {
         this.state = {
             firstLoading: true
         };
-        this.setBorderColor.bind(this);
-    }
-
-    setBorderColor() {
-        try {
-            document.getElementById(this.props.currentPage).style.borderColor = "black ";
-        } catch (e) {
-            console.log("Error with page " + this.props.currentPage);
-        }
     }
 
     setNextPage() {
-        //End of data dont go forward
-        if (this.props.lastIndex === this.props.numOfdata)
-            return;
-
-        //Paint the appropriate number in pagination and update the page
-        if (this.props.lastIndex % 10 === 0) {
-            document.getElementById(this.props.currentPage).style.borderColor = "";
-            this.setState({
-                currentPage: this.state.currentPage + 1,
-            });
-            this.props.setPage("next");
+            this.props.setPage("next", this.props.currentPage + 1);
         }
-
-    }
 
     setPrevPage() {
-
-        //Currently on the first page - dont move backwards
-        if (this.props.currentIndex <= 1) {
-            return;
-        }
-
-        document.getElementById(this.props.currentPage).style.borderColor = "";
-        this.props.setPage("prev");
+        this.props.setPage("prev" , this.props.currentPage + 1);
     }
 
 
     componentDidUpdate() {
-        //Set color to the current page each time re rendered.
-        if (this.props.numOfdata === 0)
-            return;
-        this.setBorderColor(this.props.currentPage);
+        console.log("page to paint! " + this.props.currentPage + 1);
+        document.getElementById(this.props.currentPage + 1).style.borderColor = "black ";
     }
 
     componentDidMount() {
-        document.getElementById(this.props.currentPage).style.borderColor = "black ";
+        console.log("page to paint! " + this.props.currentPage + 1);
+        document.getElementById(this.props.currentPage + 1).style.borderColor = "black ";
+    }
+
+    generatePages() {
+
+        let firstPage = 1;
+        let lastPage = (this.props.numOfdata < 10) ?
+            1 :
+            ((this.props.numOfdata - (this.props.numOfdata % 10)) / 10) + 1 ;
+
+        let arr = [];
+        for (let i = firstPage; i <= lastPage; i++) {
+            arr.push(
+                <button id={i} type="button"
+                        className="first-btn lower-btn btn btn-secondary btn-lg"> {i}</button>
+            )
+        }
+
+        return arr;
     }
 
     render() {
-        let start, last;
-        start = (this.props.numOfdata === 0) ? 0 : this.props.currentIndex;
-        switch (this.props.numOfdata) {
-            case 0 :
-                last = 0;
-                break;
-            default :
-                last = this.props.lastIndex;
-        }
+
+        let start = (this.props.numOfdata === 0) ? 0 :
+            this.props.currentPage * 10 + 1;
+        let last = (this.props.numOfdata < this.props.currentPage * 10 + 10) ?
+            this.props.numOfdata : this.props.currentPage * 10 + 10;
+
         return (
             <div className="lower">
                 <button id="prev-btn" type="button" className="lower-btn btn btn-secondary btn-lg"
                         onClick={this.setPrevPage.bind(this)}>Prev
                 </button>
-                {(this.props.numOfdata > 10 ) ?
-                    <div style={ {display: "inline"}}>
-                        {(this.state.firstLoading) ?
-                            <button id="1" type="button"
-                                    className="first-btn lower-btn btn btn-secondary btn-lg"> {1}</button> :
-                            <button id="1" type="button"
-                                    className="first-btn lower-btn btn btn-secondary btn-lg"
-                            > {1}</button>}
-                        <button id="2" type="button"
-                                className="lower-btn btn btn-secondary btn-lg">{2}</button>
-                        {(this.props.numOfdata > 20) ?
-                            <button id="3" type="button"
-                                    className="lower-btn btn btn-secondary btn-lg">{3}</button> :
-                            ""
-                        }
-                    </div>
-                    :
-                    <button id="1" type="button"
-                            className="next first-btn lower-btn btn btn-secondary btn-lg"> {1} </button>
-                }
+                <div style={ {display: "inline"}}>
+
+                    {this.generatePages()}
+
+                </div>
                 <button id="next-btn" type="button" className="lower-btn btn btn-secondary btn-lg"
                         onClick={this.setNextPage.bind(this)}>Next
                 </button>

@@ -12,9 +12,14 @@ class GridTable extends Component {
     }
 
     generateTable() {
-        let startIndex = this.props.currentIndex - 1;
-        let end = this.props.stopIndex;
-        let dataArr = this.props.data.slice(startIndex, end);
+
+        let page = this.props.currentPage; //1
+        let startSlice = page * 10; // 10
+        let end = startSlice + 10; // 20
+        if(this.props.data.length < end)
+            end = this.props.data.length; // end = 17
+
+        let dataArr = this.props.data.slice(startSlice, end);
 
         return dataArr.map(person => {
             return <PersonRow person={person}
