@@ -43,7 +43,6 @@ class Main extends Component {
         });
     }
 
-
     updateFilter(str) {
 
         this.setState({
@@ -146,6 +145,14 @@ class Main extends Component {
         return data;
     }
 
+    editPerson(person){
+
+
+
+
+
+
+    }
 
     componentDidUpdate() {
 
@@ -166,7 +173,8 @@ class Main extends Component {
                            data={renderData}
                            viewPerson={this.viewPerson.bind(this)}/>
                 <Details currentPerson={this.state.person}
-                         deletePerson={this.deletePerson.bind(this)}/>
+                         deletePerson={this.deletePerson.bind(this)}
+                         editPerson={this.editPerson.bind(this)}/>
                 <Pagination currentPage={this.state.currentPage}
                             numOfdata={renderData.length}
                             setPage={this.setPage.bind(this)}/>
