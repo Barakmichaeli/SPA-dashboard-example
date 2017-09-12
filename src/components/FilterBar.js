@@ -11,20 +11,15 @@ class FilterBar extends Component {
         firstLoad = true;
     }
 
-
     searchForUser(e) {
         this.props.updatePerson(e.target.value);
     }
 
     componentDidMount(){
-        console.log("here!");
         firstLoad = false;
     }
 
     render() {
-
-        console.log("BAT ZONA")
-        console.log(firstLoad);
         console.log(sessionStorage.getItem("filter"));
         return (
             <div className="search-container">

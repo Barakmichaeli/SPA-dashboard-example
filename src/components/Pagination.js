@@ -23,26 +23,27 @@ class Pagination extends Component {
 
 
     componentDidUpdate() {
-        console.log("page to paint! " + this.props.currentPage + 1);
         document.getElementById(this.props.currentPage + 1).style.borderColor = "black ";
     }
 
     componentDidMount() {
-        console.log("page to paint! " + this.props.currentPage + 1);
         document.getElementById(this.props.currentPage + 1).style.borderColor = "black ";
     }
 
     generatePages() {
 
         let firstPage = 1;
+
         let lastPage = (this.props.numOfdata < 10) ?
             1 :
-            ((this.props.numOfdata - (this.props.numOfdata % 10)) / 10) + 1 ;
+            ((this.props.numOfdata - 1) / 10) + 1 ;
 
         let arr = [];
         for (let i = firstPage; i <= lastPage; i++) {
             arr.push(
-                <button id={i} type="button"
+                <button id={i}
+                        type="button"
+                        key={i}
                         className="first-btn lower-btn btn btn-secondary btn-lg"> {i}</button>
             )
         }
@@ -54,6 +55,8 @@ class Pagination extends Component {
 
         let start = (this.props.numOfdata === 0) ? 0 :
             this.props.currentPage * 10 + 1;
+
+
         let last = (this.props.numOfdata < this.props.currentPage * 10 + 10) ?
             this.props.numOfdata : this.props.currentPage * 10 + 10;
 

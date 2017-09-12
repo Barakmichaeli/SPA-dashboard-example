@@ -23,6 +23,7 @@ class GridTable extends Component {
 
         return dataArr.map(person => {
             return <PersonRow person={person}
+                              key={person.id}
                               viewPerson={this.props.viewPerson}/>
         });
     }

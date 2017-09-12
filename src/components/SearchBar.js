@@ -23,7 +23,6 @@ class SearchBar extends Component {
     }
 
     render() {
-        console.log("render search bar")
         return (
             <div>
                 {(this.state.filter) ?

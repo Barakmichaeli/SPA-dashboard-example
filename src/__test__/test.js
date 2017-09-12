@@ -6,6 +6,10 @@ import   GridTable from '../components/GridTable';
 import {shallow, render} from 'enzyme';
 import PersonRow from "../components/PersonRow";
 
+//shallow testing allow us to render a component "one level deep"
+//and therefore to check the render function of this component without worrying about his child component
+//which are not instantiated yet.
+
 describe('Testing the main GridTable component', () => {
 
     it('test whether main component includes main table', () => {
@@ -38,6 +42,4 @@ describe('Testing the main GridTable component', () => {
 
         expect(wrapper.contains(<PersonRow/>)).toBe(false);
     });
-
-
 });
