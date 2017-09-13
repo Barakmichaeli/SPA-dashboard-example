@@ -6,6 +6,14 @@ import   GridTable from '../components/GridTable';
 import {shallow, render} from 'enzyme';
 import PersonRow from "../components/PersonRow";
 
+
+//Enzyme - airbnb for react testing.
+// allow us to test declarative ui, such as component by working on the DOM-
+//3 MODES:
+//1. Shadow - isolated component with it's state and props.
+//2.Mount - part of the DOM Tree.
+//3.Static - which is not common.
+
 //shallow testing allow us to render a component "one level deep"
 //and therefore to check the render function of this component without worrying about his child component
 //which are not instantiated yet.
